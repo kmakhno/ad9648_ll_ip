@@ -1,1 +1,3 @@
 src/fifo_generator_0/*.xml
+src/ila_0/*
+!src/ila_0/ila_0.xci
