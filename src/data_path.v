@@ -73,4 +73,12 @@ fifo_generator_0 fifo_generator_0_inst0 (
     .empty(empty_o)
 );
 
+ila_0 ila_0_inst(
+    .clk(clk_demux_i),
+    .probe0(ch_A_d),
+    .probe1(ch_B_d),
+    .probe2(valid_d),
+    .probe3(adc_data_i)
+);
+
 endmodule

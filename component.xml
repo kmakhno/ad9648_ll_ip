@@ -16,12 +16,15 @@
           <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_ila_6_2__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>12aad96d</spirit:value>
+            <spirit:value>55a9299b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -35,12 +38,15 @@
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_ila_6_2__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>12aad96d</spirit:value>
+            <spirit:value>55a9299b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -580,12 +586,26 @@
         <spirit:userFileType>CHECKSUM_daf763fc</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ila_0/ila_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:name>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="fifo_generator" xilinx:version="13.2">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_ila_6_2__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="ila" xilinx:version="6.2">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -643,12 +663,26 @@
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ila_0/ila_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:name>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="fifo_generator" xilinx:version="13.2">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_ila_6_2__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="ila" xilinx:version="6.2">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -736,8 +770,8 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-02-21T18:04:50Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-05-14T11:08:25Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@494c83d0_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1be7ed20_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
@@ -755,11 +789,63 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7a3e13a2_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@47b425b8_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@2a07216_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1829bce4_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@503565fe_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51a59485_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45d37880_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37da1467_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b6115f5_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21e795b7_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ac532bb_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fe68479_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36f2f4a4_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e069d8c_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@601c01cd_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c3189c8_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@252c2367_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d92a7e_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57510d46_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70deb14_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3becd0d0_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ffb06a5_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@426c5a78_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@433ea04f_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50c1e5b1_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e62731c_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b252312_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c56a9c5_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3cd85db8_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b01e933_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57c402ec_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52189943_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d14a082_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a6a726e_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b580823_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b19ff69_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a7b8836_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a6caee9_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15b67369_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38d0aeda_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c44c91b_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d7b9e53_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4213d0e7_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@164b0d93_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6789ec5c_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1060eb3d_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@762876f9_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41863412_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1000ada1_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b928960_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f62ff18_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7914c35_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2efb16cb_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5298b224_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2cc79fa4_ARCHIVE_LOCATION">c:/Users/Kostiantyn/Documents/xilinx_projects/ad9648_ll_ip</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c46f8659"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="02e81edd"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="1043aaa3"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="4513555c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="538612f4"/>
