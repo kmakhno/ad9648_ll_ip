@@ -34,9 +34,11 @@ module channel_demux #(
 
 reg valid_q;
 initial valid_q = 1'b0;
+reg valid_qq = 1'b0;
 
 always @(posedge clk_demux_i) begin
     valid_q <= clk_en_i;
+    valid_qq <= valid_q;
 end
 
 genvar g;
@@ -60,6 +62,6 @@ generate
     end
 endgenerate
 
-assign valid_o = valid_q;
+assign valid_o = valid_qq;
 
 endmodule
