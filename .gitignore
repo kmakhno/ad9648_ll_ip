@@ -1,3 +1,5 @@
 src/fifo_generator_0/*.xml
 src/ila_0/*
 !src/ila_0/ila_0.xci
+src/axis_dwidth_converter_0/*
+!src/axis_dwidth_converter_0/axis_dwidth_converter_0.xci

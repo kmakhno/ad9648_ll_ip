@@ -26,7 +26,9 @@ module AD9648_LLController #(
     parameter RxRegWidth = 8,
     parameter RcvBits = 16,
     parameter Cpol = 0,
-    parameter Cpha = 0
+    parameter Cpha = 0,
+    parameter AdcNchannels = 2,     
+    parameter AdcChannelName = "CHA"
 )
 (
     /* from clock generator */
@@ -66,9 +68,9 @@ module AD9648_LLController #(
 
     /* Data path interface */
     input [AdcRes-1:0] adc_data_i,
-    input rd_en_i,
-    output empty_o,
-    output [31:0] ch_AB_o,
+    input adc_ready_i,
+    output adc_valid_o,
+    output [31:0] adc_data_o,
     output full_o
 );
 
@@ -147,15 +149,17 @@ assign oe_d = (shift_strobe_cnt_d < RcvBits) ? 1'b0 : tx_data_i[TxRegWidth-1];
 
 /************************ Data path section *********************************/
 data_path #(
-    .AdcRes(AdcRes)
+    .AdcRes(AdcRes),
+    .AdcNchannels(AdcNchannels),     
+    .AdcChannelName(AdcChannelName)
 ) data_path_inst (
     .clk_sys_i(clk_sys_i),
     .clk_demux_i(adc_dco_clk_d),
     .clk_en_i(iddr_clk_en_d),
-    .rd_en_i(rd_en_i),
-    .empty_o(empty_o),
+    .rd_en_i(adc_ready_i),
+    .adc_valid_o(adc_valid_o),
     .adc_data_i(adc_data_i),
-    .ch_AB_o(ch_AB_o),
+    .ch_AB_o(adc_data_o),
     /*for test*/
     .full_o(full_o)
 );

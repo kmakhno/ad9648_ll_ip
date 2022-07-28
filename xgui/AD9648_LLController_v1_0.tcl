@@ -4,13 +4,29 @@ proc init_gui { IPINST } {
   #Adding Page
   set Page_0 [ipgui::add_page $IPINST -name "Page 0"]
   ipgui::add_param $IPINST -name "AdcRes" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "Cpha" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "Cpol" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "RcvBits" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "RxRegWidth" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "TxRegWidth" -parent ${Page_0}
 
+  ipgui::add_param $IPINST -name "AdcChannelName" -widget comboBox
+  set AdcNchannels [ipgui::add_param $IPINST -name "AdcNchannels" -widget comboBox]
+  set_property tooltip {AdcNchannels} ${AdcNchannels}
 
+}
+
+proc update_PARAM_VALUE.AdcChannelName { PARAM_VALUE.AdcChannelName } {
+	# Procedure called to update AdcChannelName when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.AdcChannelName { PARAM_VALUE.AdcChannelName } {
+	# Procedure called to validate AdcChannelName
+	return true
+}
+
+proc update_PARAM_VALUE.AdcNchannels { PARAM_VALUE.AdcNchannels } {
+	# Procedure called to update AdcNchannels when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.AdcNchannels { PARAM_VALUE.AdcNchannels } {
+	# Procedure called to validate AdcNchannels
+	return true
 }
 
 proc update_PARAM_VALUE.AdcRes { PARAM_VALUE.AdcRes } {
@@ -96,5 +112,15 @@ proc update_MODELPARAM_VALUE.Cpol { MODELPARAM_VALUE.Cpol PARAM_VALUE.Cpol } {
 proc update_MODELPARAM_VALUE.Cpha { MODELPARAM_VALUE.Cpha PARAM_VALUE.Cpha } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.Cpha}] ${MODELPARAM_VALUE.Cpha}
+}
+
+proc update_MODELPARAM_VALUE.AdcNchannels { MODELPARAM_VALUE.AdcNchannels PARAM_VALUE.AdcNchannels } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.AdcNchannels}] ${MODELPARAM_VALUE.AdcNchannels}
+}
+
+proc update_MODELPARAM_VALUE.AdcChannelName { MODELPARAM_VALUE.AdcChannelName PARAM_VALUE.AdcChannelName } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.AdcChannelName}] ${MODELPARAM_VALUE.AdcChannelName}
 }
 
