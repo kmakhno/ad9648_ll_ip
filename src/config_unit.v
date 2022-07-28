@@ -54,7 +54,9 @@ module config_unit #(
     output sc1_gain_h_t_o,
     output sc1_gain_l_t_o,
     output sc2_gain_h_t_o,
-    output sc2_gain_l_t_o
+    output sc2_gain_l_t_o,
+    input sweep_complete_i,
+    input [31:0] sweep_num_i
 );
 
 wire [TxRegWidth-1:0] tx_reg_d;
@@ -118,7 +120,9 @@ control_fsm #(
     .sc1_gain_h_t_o(sc1_gain_h_t_o),
     .sc1_gain_l_t_o(sc1_gain_l_t_o),
     .sc2_gain_h_t_o(sc2_gain_h_t_o),
-    .sc2_gain_l_t_o(sc2_gain_l_t_o)
+    .sc2_gain_l_t_o(sc2_gain_l_t_o),
+    .sweep_complete_i(sweep_complete_i),
+    .sweep_num_i(sweep_num_i)
 );
 
 endmodule

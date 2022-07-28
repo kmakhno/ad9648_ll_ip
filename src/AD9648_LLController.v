@@ -71,7 +71,9 @@ module AD9648_LLController #(
     input adc_ready_i,
     output adc_valid_o,
     output [31:0] adc_data_o,
-    output full_o
+    output full_o,
+    input sweep_complete_i,
+    input [31:0] sweep_num_i
 );
 
 /****************************** ADC's clock section ************************/
@@ -135,7 +137,9 @@ config_unit #(
     .sc1_gain_h_t_o    (sc1_gain_h_t_o),
     .sc1_gain_l_t_o    (sc1_gain_l_t_o),
     .sc2_gain_h_t_o    (sc2_gain_h_t_o),
-    .sc2_gain_l_t_o    (sc2_gain_l_t_o)
+    .sc2_gain_l_t_o    (sc2_gain_l_t_o),
+    .sweep_complete_i  (sweep_complete_i),
+    .sweep_num_i       (sweep_num_i)
 );
 
 IOBUF IOBUF_inst (

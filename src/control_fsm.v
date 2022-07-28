@@ -58,7 +58,9 @@ module control_fsm #(
     output reg sc1_gain_h_t_o,
     output reg sc1_gain_l_t_o,
     output reg sc2_gain_h_t_o,
-    output reg sc2_gain_l_t_o
+    output reg sc2_gain_l_t_o,
+    input sweep_complete_i,
+    input [31:0] sweep_num_i
 );
 
 localparam [1:0] IDLE    = 2'b00,
@@ -74,6 +76,7 @@ reg [TxRegWidth-1:0] tx_reg_q;
 reg transfer_start_q;
 reg [1:0] front_det;
 reg iddr_clk_en_q;
+reg [31:0] sweep_num_cnt_q = 0;
 
 initial iddr_clk_en_q = 1'b0;
 
@@ -102,9 +105,10 @@ always @(posedge clk_i) begin
         iddr_clk_en_q <= 1'b0;
         case (state_q)
             IDLE: begin
-                if (config_done_d)
+                if (config_done_d && sweep_complete_i) begin
                     state_q <= PROCESS;
-                else if (transfer_start_d)
+                    iddr_clk_en_q <= 1'b1;
+                end else if (transfer_start_d)
                     state_q <= CONFIG;
                 else
                     state_q <= IDLE;
@@ -117,13 +121,16 @@ always @(posedge clk_i) begin
             end
 
             PROCESS: begin
-                if (process_finished_d) begin
+                if (sweep_complete_i && (sweep_num_cnt_q == sweep_num_i-1)) begin
+                    iddr_clk_en_q <= 0;
                     state_q <= IDLE;
-                    iddr_clk_en_q <= 1'b0;
-                end else begin
-                    state_q <= PROCESS;
-                    iddr_clk_en_q <= 1'b1;
                 end
+//                if (process_finished_d) begin
+//                    state_q <= IDLE;
+//                    iddr_clk_en_q <= 1'b0;
+//                end else begin
+//                    state_q <= PROCESS;
+//                end
             end
         endcase
     end
@@ -163,6 +170,17 @@ always @(*) begin
         sc1_gain_l_t_o = 1'b1;
         sc2_gain_h_t_o = 1'b1;
         sc2_gain_l_t_o = 1'b1;
+    end
+end
+
+always @(posedge clk_i) begin
+    if (rst_clk_i)
+        sweep_num_cnt_q <= 0;
+    else if (iddr_clk_en_q && sweep_complete_i) begin
+        sweep_num_cnt_q <= sweep_num_cnt_q + 1'b1;
+        if (sweep_num_cnt_q == sweep_num_i-1) begin
+            sweep_num_cnt_q <= 0;
+        end
     end
 end
 
