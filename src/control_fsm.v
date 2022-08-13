@@ -77,6 +77,9 @@ reg transfer_start_q;
 reg [1:0] front_det;
 reg iddr_clk_en_q;
 reg [31:0] sweep_num_cnt_q = 0;
+reg [1:0] sweep_shr_q;
+reg sweep_complete_strobe_q;
+reg config_done_q = 1'b0;
 
 initial iddr_clk_en_q = 1'b0;
 
@@ -96,16 +99,37 @@ front_detector front_detector_inst1 (
 );
 
 always @(posedge clk_i) begin
+    if (config_done_d)
+        config_done_q <= 1'b1;
+    else if (process_finished_d)
+        config_done_q <= 1'b0;
+end
+
+always @(posedge clk_i) begin
+    if (rst_clk_i) begin
+        sweep_complete_strobe_q <= 1'b0;
+        sweep_shr_q <= 2'b00;
+    end else begin
+        sweep_shr_q <= {sweep_shr_q[0], sweep_complete_i};
+        if (sweep_shr_q == 2'b01)
+            sweep_complete_strobe_q <= 1'b1;
+        else
+            sweep_complete_strobe_q <= 1'b0;
+    end
+end
+
+always @(posedge clk_i) begin
     if (rst_clk_i) begin
         state_q <= IDLE;
         tx_reg_q <= 0;
         transfer_start_q <= 1'b0;
+        iddr_clk_en_q <= 1'b0;
     end else begin
         transfer_start_q <= 1'b0;
-        iddr_clk_en_q <= 1'b0;
+        //iddr_clk_en_q <= 1'b0;
         case (state_q)
             IDLE: begin
-                if (config_done_d && sweep_complete_i) begin
+                if (config_done_i && sweep_complete_strobe_q && config_done_q) begin
                     state_q <= PROCESS;
                     iddr_clk_en_q <= 1'b1;
                 end else if (transfer_start_d)
@@ -121,16 +145,10 @@ always @(posedge clk_i) begin
             end
 
             PROCESS: begin
-                if (sweep_complete_i && (sweep_num_cnt_q == sweep_num_i-1)) begin
+                if (sweep_complete_strobe_q && (sweep_num_cnt_q == sweep_num_i-1)) begin
                     iddr_clk_en_q <= 0;
                     state_q <= IDLE;
                 end
-//                if (process_finished_d) begin
-//                    state_q <= IDLE;
-//                    iddr_clk_en_q <= 1'b0;
-//                end else begin
-//                    state_q <= PROCESS;
-//                end
             end
         endcase
     end
@@ -176,7 +194,7 @@ end
 always @(posedge clk_i) begin
     if (rst_clk_i)
         sweep_num_cnt_q <= 0;
-    else if (iddr_clk_en_q && sweep_complete_i) begin
+    else if (iddr_clk_en_q && sweep_complete_strobe_q) begin
         sweep_num_cnt_q <= sweep_num_cnt_q + 1'b1;
         if (sweep_num_cnt_q == sweep_num_i-1) begin
             sweep_num_cnt_q <= 0;
@@ -188,7 +206,7 @@ assign transfer_start_o = transfer_start_q;
 assign tx_reg_o = tx_reg_q;
 assign rx_reg_o = rx_reg_i;
 assign transfer_done_o = transfer_done_i;
-assign process_finished_d = (front_det == 2'b10);
+assign process_finished_d = sweep_complete_strobe_q && (sweep_num_cnt_q == sweep_num_i-1);
 assign iddr_clk_en_o = iddr_clk_en_q;
 
 endmodule

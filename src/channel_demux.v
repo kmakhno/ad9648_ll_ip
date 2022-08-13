@@ -35,6 +35,15 @@ module channel_demux #(
 reg valid_q;
 initial valid_q = 1'b0;
 reg valid_qq = 1'b0;
+//reg [AdcRes-1:0] adc_data_q;
+//reg [AdcRes-1:0] adc_data_qq;
+//initial adc_data_q = 0;
+//initial adc_data_qq = 0;
+
+//always @(posedge clk_demux_i) begin
+//    adc_data_q <= adc_data_i;
+//    adc_data_qq <= adc_data_q;
+//end
 
 always @(posedge clk_demux_i) begin
     valid_q <= clk_en_i;
